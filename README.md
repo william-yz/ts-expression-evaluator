@@ -1,3 +1,3 @@
-# expression
+# ts-expression-evaluator
 
 expression

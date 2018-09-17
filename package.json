@@ -1,13 +1,17 @@
 {
-  "name": "expression",
+  "name": "ts-expression-evaluator",
   "version": "1.0.0",
-  "description": "expression",
+  "description": "Context-based expression parse and evaluator.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/william-yz/expression",
+  "repository": "https://github.com/william-yz/ts-expression-evaluator",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "evaluate",
+    "expression"
+  ],
   "scripts": {
     "info": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
@@ -51,8 +55,12 @@
   "engines": {
     "node": ">=8.9"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@babel/parser": "^7.0.0",
+    "@babel/types": "^7.0.0"
+  },
   "devDependencies": {
+    "@types/babel__parser": "^7.0.0",
     "ava": "1.0.0-beta.7",
     "codecov": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
