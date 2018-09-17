@@ -67,7 +67,7 @@ export const Handlers: Handlers = {
   MemberExpression(ast: t.Expression, context: Context) {
     if (t.isMemberExpression(ast)) {
       const obj = evaluate(ast.object, context);
-      if (obj === undefined) return undefined;
+      if (!obj) return undefined;
       if (t.isIdentifier(ast.property)) {
         return evaluate(ast.property, obj);
       }
