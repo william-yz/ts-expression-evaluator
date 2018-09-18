@@ -2,6 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 
+[npm-image]: https://img.shields.io/npm/v/ts-expression-evaluator.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/ts-expression-evaluator
 
 Context-based expression parse and evaluator.
