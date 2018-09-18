@@ -1,0 +1,11 @@
+import * as t from '@babel/types';
+export declare const isIdentifier: (ast: t.Expression) => ast is t.Identifier;
+export declare const isBinaryExpression: (ast: t.Expression) => ast is t.BinaryExpression;
+export declare const isMemberExpression: (ast: t.Expression) => ast is t.MemberExpression;
+export declare const isNumericLiteral: (ast: t.Expression) => ast is t.NumericLiteral;
+export declare const isStringLiteral: (ast: t.Expression) => ast is t.StringLiteral;
+export declare const isBooleanLiteral: (ast: t.Expression) => ast is t.BooleanLiteral;
+export declare const isNullLiteral: (ast: t.Expression) => ast is t.NullLiteral;
+export declare const isArrayExpression: (ast: t.Expression) => ast is t.ArrayExpression;
+export declare const isCallExpression: (ast: t.Expression) => ast is t.CallExpression;
+export declare type Expression = t.Expression;

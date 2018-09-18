@@ -1,4 +1,4 @@
-import * as t from '@babel/types';
+import * as t from './t';
 import { evaluate } from './Evaluator';
 import { getFunction } from './functions';
 
@@ -54,9 +54,7 @@ export const Handlers: Handlers = {
       if (t.isIdentifier(ast.callee)) {
         const func = getFunction(ast.callee.name);
         const args: t.Expression[] = ast.arguments.map(arg => {
-          if (t.isSpreadElement(arg)) throw new Error('Spread syntax is not supported.');
-          if (t.isJSXNamespacedName(arg)) throw new Error('Jsx symtax is not supported.');
-          return evaluate(arg, context);
+          return evaluate(arg as t.Expression, context);
         });
         return func.call(null, ...args);
       }
@@ -106,8 +104,7 @@ export const Handlers: Handlers = {
     if (t.isArrayExpression(ast)) {
       return ast.elements.map(elem => {
         if (!elem) throw new Error();
-        if (t.isSpreadElement(elem)) throw new Error('Spread syntax is not supported.');
-        return evaluate(elem, context);
+        return evaluate(elem as t.Expression, context);
       });
     }
     throw new Error();
