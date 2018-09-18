@@ -1,15 +1,16 @@
-const functions = {};
-export const registerFunction = (name, func) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var functions = {};
+exports.registerFunction = function (name, func) {
     functions[name] = func;
 };
-export const registerFunctions = (funcs) => {
+exports.registerFunctions = function (funcs) {
     Object.keys(funcs)
-        .forEach(key => functions[key] = funcs[key]);
+        .forEach(function (key) { return functions[key] = funcs[key]; });
 };
-export const getFunction = (name) => {
+exports.getFunction = function (name) {
     if (functions[name]) {
         return functions[name];
     }
-    throw new Error(`Function(${name}) did not be resigtered.`);
+    throw new Error("Function(" + name + ") did not be resigtered.");
 };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZnVuY3Rpb25zLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2xpYi9mdW5jdGlvbnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSUEsTUFBTSxTQUFTLEdBQWMsRUFFNUIsQ0FBQTtBQUVELE1BQU0sQ0FBQyxNQUFNLGdCQUFnQixHQUFHLENBQUMsSUFBWSxFQUFFLElBQWMsRUFBRSxFQUFFO0lBQy9ELFNBQVMsQ0FBQyxJQUFJLENBQUMsR0FBRyxJQUFJLENBQUM7QUFDekIsQ0FBQyxDQUFBO0FBQ0QsTUFBTSxDQUFDLE1BQU0saUJBQWlCLEdBQUcsQ0FBQyxLQUFrQyxFQUFFLEVBQUU7SUFDdEUsTUFBTSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUM7U0FDZixPQUFPLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLEdBQUcsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7QUFDakQsQ0FBQyxDQUFBO0FBRUQsTUFBTSxDQUFDLE1BQU0sV0FBVyxHQUFHLENBQUMsSUFBWSxFQUFZLEVBQUU7SUFDcEQsSUFBSSxTQUFTLENBQUMsSUFBSSxDQUFDLEVBQUU7UUFDbkIsT0FBTyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDeEI7SUFDRCxNQUFNLElBQUksS0FBSyxDQUFDLFlBQVksSUFBSSwwQkFBMEIsQ0FBQyxDQUFBO0FBQzdELENBQUMsQ0FBQSJ9
