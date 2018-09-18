@@ -71,6 +71,9 @@ export const Handlers: Handlers = {
       if (t.isIdentifier(ast.property)) {
         return evaluate(ast.property, obj);
       }
+      if (t.isNumericLiteral(ast.property) || t.isStringLiteral(ast.property)) {
+        return obj[ast.property.value];
+      }
       return evaluate(ast.property, context);
     }
     throw new Error();
