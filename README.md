@@ -1,9 +1,12 @@
 # ts-expression-evaluator
 
 [![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
 
 [npm-image]: https://img.shields.io/npm/v/ts-expression-evaluator.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/ts-expression-evaluator
+[travis-image]: https://img.shields.io/travis/william-yz/ts-expression-evaluator.svg?style=flat-square
+[travis-url]: https://travis-ci.org/william-yz/ts-expression-evaluator
 
 Context-based expression parse and evaluator.
 
