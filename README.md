@@ -1,5 +1,9 @@
 # ts-expression-evaluator
 
+[![NPM version][npm-image]][npm-url]
+
+[npm-url]: https://www.npmjs.com/package/ts-expression-evaluator
+
 Context-based expression parse and evaluator.
 
 ## install
