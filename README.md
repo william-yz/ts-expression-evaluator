@@ -2,6 +2,11 @@
 
 Context-based expression parse and evaluator.
 
+## install
+- npm
+`npm install ts-expression-evaluator`
+- yarn
+`yarn add ts-expression-evaluator`
 ## Quick start
 ```javascript
 import evaluate, { registerFunction } from 'ts-expression-evaluator'
