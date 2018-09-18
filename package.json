@@ -1,6 +1,6 @@
 {
   "name": "ts-expression-evaluator",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Context-based expression parse and evaluator.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
