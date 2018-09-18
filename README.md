@@ -58,5 +58,5 @@ evaluate('IF(name === 'FED', 'It\'s FED.', 'It\'s not FED.')') // It's FED.
 
 ### `registerFunctions(funcs: {[key: string]: Function}): void`
 
-## LICENSE
+## License
 MIT
