@@ -2,13 +2,16 @@
 
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
+[![Coverage Status][cov-image]][cov-status]
 
 [npm-image]: https://img.shields.io/npm/v/ts-expression-evaluator.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/ts-expression-evaluator
 [travis-image]: https://img.shields.io/travis/william-yz/ts-expression-evaluator.svg?style=flat-square
 [travis-url]: https://travis-ci.org/william-yz/ts-expression-evaluator
+[cov-image]: https://coveralls.io/repos/github/william-yz/ts-expression-evaluator/badge.svg?branch=master
+[cov-status]: https://coveralls.io/github/william-yz/ts-expression-evaluator?branch=master
 
-Context-based expression parse and evaluator.
+Context-based expression evaluator.
 
 ## install
 - npm
