@@ -7,7 +7,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var t = __importStar(require("@babel/types"));
+var t = __importStar(require("./t"));
 var Evaluator_1 = require("./Evaluator");
 var functions_1 = require("./functions");
 exports.Handlers = {

@@ -1,4 +1,4 @@
-import * as t from '@babel/types';
+import * as t from './t';
 import { evaluate } from './Evaluator';
 import { getFunction } from './functions';
 export var Handlers = {

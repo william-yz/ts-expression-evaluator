@@ -1,4 +1,4 @@
-import * as t from '@babel/types';
+import * as t from './t';
 export declare type HandlerTypes = 'BinaryExpression' | 'NumericLiteral' | 'StringLiteral' | 'BooleanLiteral' | 'ArrayExpression' | 'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression';
 export declare type Context = {
     [key: string]: any;
