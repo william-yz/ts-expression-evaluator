@@ -11,7 +11,7 @@
 [cov-image]: https://coveralls.io/repos/github/william-yz/ts-expression-evaluator/badge.svg?branch=master
 [cov-status]: https://coveralls.io/github/william-yz/ts-expression-evaluator?branch=master
 
-Context-based expression parse and evaluator.
+Context-based expression evaluator.
 
 ## install
 - npm
