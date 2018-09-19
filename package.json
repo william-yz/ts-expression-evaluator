@@ -22,12 +22,9 @@
     "fix:tslint": "tslint --fix --project .",
     "test": "run-s build test:*",
     "test:lint": "tslint --project . && prettier \"src/**/*.ts\" --list-different",
-    "test:unit": "nyc --silent ava",
+    "test:unit": "jest",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
-    "cov": "run-s build test:unit cov:html && opn coverage/index.html",
-    "cov:html": "nyc report --reporter=html",
-    "cov:send": "nyc report --reporter=lcov > coverage.lcov && codecov",
-    "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "cov": "jest --coverage",
     "doc": "run-s doc:html && opn build/docs/index.html",
     "doc:html": "typedoc src/ --target ES6 --mode file --out build/docs",
     "doc:json": "typedoc src/ --target ES6 --mode file --json build/docs/typedoc.json",
@@ -58,31 +55,24 @@
     "@babel/parser": "^7.0.0"
   },
   "devDependencies": {
+    "@babel/types": "^7.0.0",
     "@types/babel__parser": "^7.0.0",
-    "ava": "1.0.0-beta.7",
+    "@types/jest": "^23.3.2",
     "codecov": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
     "gh-pages": "^1.2.0",
+    "jest": "^23.6.0",
     "npm-run-all": "^4.1.3",
-    "nyc": "^12.0.2",
     "opn-cli": "^3.1.0",
     "prettier": "^1.13.4",
     "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
+    "ts-jest": "^23.1.4",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-immutable": "^4.5.4",
     "typedoc": "^0.12.0",
     "typescript": "^3.0.1"
-  },
-  "ava": {
-    "failFast": true,
-    "files": [
-      "build/main/**/*.spec.js"
-    ],
-    "sources": [
-      "build/main/**/*.js"
-    ]
   },
   "config": {
     "commitizen": {
@@ -92,9 +82,23 @@
   "prettier": {
     "singleQuote": true
   },
-  "nyc": {
-    "exclude": [
-      "**/*.spec.js"
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
     ]
+  },
+  "globals": {
+    "ts-jest": {
+      "tsConfigFile": "tsconfig.test.json"
+    }
   }
 }
