@@ -14,7 +14,8 @@ const context = {
     b: {
       c: 'c'
     }
-  }
+  },
+  b: false
 }
 describe('evaluate expression', () => {
   it('1 + 2 - 3 * 4 / 5', () => {
@@ -92,6 +93,10 @@ describe('evaluate expression', () => {
     expect(evaluate('ADD(obj.a, 1) === 2', context)).toBeTruthy();
     expect(add.mock.calls.length).toBe(1);
     expect(add.mock.calls[0]).toEqual([1, 1]);
+  });
+
+  it('!', () => {
+    expect(evaluate('!b', context)).toBeTruthy();
   })
 
 });

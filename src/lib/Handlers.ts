@@ -3,7 +3,7 @@ import { evaluate } from './Evaluator';
 import { getFunction } from './functions';
 
 export type HandlerTypes = 'BinaryExpression' | 'NumericLiteral' | 'StringLiteral' | 'BooleanLiteral' | 'ArrayExpression' |
-  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression' | 'LogicalExpression';
+  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression' | 'LogicalExpression' | 'UnaryExpression';
 
 export type Context = {
   [key: string]: any;
@@ -54,6 +54,16 @@ export const Handlers: Handlers = {
           return evaluate(ast.left, context) && evaluate(ast.right, context);
         case '||':
           return evaluate(ast.left, context) || evaluate(ast.right, context);
+      }
+    }
+    throw new Error();
+  },
+
+  UnaryExpression(ast: t.Expression, context: Context): boolean {
+    if (t.isUnaryExpression(ast)) {
+      switch (ast.operator) {
+        case '!':
+          return !evaluate(ast.argument, context);
       }
     }
     throw new Error();

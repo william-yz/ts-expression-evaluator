@@ -3,8 +3,8 @@ test
 src/**.js
 .idea/*
 .vscode
+build/
 
 coverage
 .nyc_output
 *.log
-
