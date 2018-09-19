@@ -3,7 +3,7 @@ import { evaluate } from './Evaluator';
 import { getFunction } from './functions';
 
 export type HandlerTypes = 'BinaryExpression' | 'NumericLiteral' | 'StringLiteral' | 'BooleanLiteral' | 'ArrayExpression' |
-  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression';
+  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression' | 'LogicalExpression';
 
 export type Context = {
   [key: string]: any;
@@ -34,10 +34,31 @@ export const Handlers: Handlers = {
           return evaluate(ast.left, context) !== evaluate(ast.right, context);
         case '!=':
           return evaluate(ast.left, context) != evaluate(ast.right, context);
+        case '>':
+          return evaluate(ast.left, context) > evaluate(ast.right, context);
+        case '>=':
+          return evaluate(ast.left, context) >= evaluate(ast.right, context);
+        case '<':
+          return evaluate(ast.left, context) < evaluate(ast.right, context);
+        case '<=':
+          return evaluate(ast.left, context) <= evaluate(ast.right, context);
       }
     }
     throw new Error();
   },
+
+  LogicalExpression(ast: t.Expression, context: Context): boolean {
+    if (t.isLogicalExpression(ast)) {
+      switch (ast.operator) {
+        case '&&':
+          return evaluate(ast.left, context) && evaluate(ast.right, context);
+        case '||':
+          return evaluate(ast.left, context) || evaluate(ast.right, context);
+      }
+    }
+    throw new Error();
+  },
+
   Identifier(ast: t.Expression, context: Context) {
     if (t.isIdentifier(ast)) {
       switch (ast.name) {
@@ -72,7 +93,6 @@ export const Handlers: Handlers = {
       if (t.isNumericLiteral(ast.property) || t.isStringLiteral(ast.property)) {
         return obj[ast.property.value];
       }
-      return evaluate(ast.property, context);
     }
     throw new Error();
   },
@@ -103,7 +123,6 @@ export const Handlers: Handlers = {
   ArrayExpression(ast: t.Expression, context: Context) {
     if (t.isArrayExpression(ast)) {
       return ast.elements.map(elem => {
-        if (!elem) throw new Error();
         return evaluate(elem as t.Expression, context);
       });
     }

@@ -30,6 +30,25 @@ exports.Handlers = {
                     return Evaluator_1.evaluate(ast.left, context) !== Evaluator_1.evaluate(ast.right, context);
                 case '!=':
                     return Evaluator_1.evaluate(ast.left, context) != Evaluator_1.evaluate(ast.right, context);
+                case '>':
+                    return Evaluator_1.evaluate(ast.left, context) > Evaluator_1.evaluate(ast.right, context);
+                case '>=':
+                    return Evaluator_1.evaluate(ast.left, context) >= Evaluator_1.evaluate(ast.right, context);
+                case '<':
+                    return Evaluator_1.evaluate(ast.left, context) < Evaluator_1.evaluate(ast.right, context);
+                case '<=':
+                    return Evaluator_1.evaluate(ast.left, context) <= Evaluator_1.evaluate(ast.right, context);
+            }
+        }
+        throw new Error();
+    },
+    LogicalExpression: function (ast, context) {
+        if (t.isLogicalExpression(ast)) {
+            switch (ast.operator) {
+                case '&&':
+                    return Evaluator_1.evaluate(ast.left, context) && Evaluator_1.evaluate(ast.right, context);
+                case '||':
+                    return Evaluator_1.evaluate(ast.left, context) || Evaluator_1.evaluate(ast.right, context);
             }
         }
         throw new Error();
@@ -68,7 +87,6 @@ exports.Handlers = {
             if (t.isNumericLiteral(ast.property) || t.isStringLiteral(ast.property)) {
                 return obj[ast.property.value];
             }
-            return Evaluator_1.evaluate(ast.property, context);
         }
         throw new Error();
     },
@@ -99,8 +117,6 @@ exports.Handlers = {
     ArrayExpression: function (ast, context) {
         if (t.isArrayExpression(ast)) {
             return ast.elements.map(function (elem) {
-                if (!elem)
-                    throw new Error();
                 return Evaluator_1.evaluate(elem, context);
             });
         }

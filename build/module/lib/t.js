@@ -25,3 +25,6 @@ export var isArrayExpression = function (ast) {
 export var isCallExpression = function (ast) {
     return ast.type === 'CallExpression';
 };
+export var isLogicalExpression = function (ast) {
+    return ast.type === 'LogicalExpression';
+};

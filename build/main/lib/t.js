@@ -27,3 +27,6 @@ exports.isArrayExpression = function (ast) {
 exports.isCallExpression = function (ast) {
     return ast.type === 'CallExpression';
 };
+exports.isLogicalExpression = function (ast) {
+    return ast.type === 'LogicalExpression';
+};

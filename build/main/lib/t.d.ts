@@ -8,4 +8,5 @@ export declare const isBooleanLiteral: (ast: t.Expression) => ast is t.BooleanLi
 export declare const isNullLiteral: (ast: t.Expression) => ast is t.NullLiteral;
 export declare const isArrayExpression: (ast: t.Expression) => ast is t.ArrayExpression;
 export declare const isCallExpression: (ast: t.Expression) => ast is t.CallExpression;
+export declare const isLogicalExpression: (ast: t.Expression) => ast is t.LogicalExpression;
 export declare type Expression = t.Expression;

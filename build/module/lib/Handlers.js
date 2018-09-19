@@ -21,6 +21,25 @@ export var Handlers = {
                     return evaluate(ast.left, context) !== evaluate(ast.right, context);
                 case '!=':
                     return evaluate(ast.left, context) != evaluate(ast.right, context);
+                case '>':
+                    return evaluate(ast.left, context) > evaluate(ast.right, context);
+                case '>=':
+                    return evaluate(ast.left, context) >= evaluate(ast.right, context);
+                case '<':
+                    return evaluate(ast.left, context) < evaluate(ast.right, context);
+                case '<=':
+                    return evaluate(ast.left, context) <= evaluate(ast.right, context);
+            }
+        }
+        throw new Error();
+    },
+    LogicalExpression: function (ast, context) {
+        if (t.isLogicalExpression(ast)) {
+            switch (ast.operator) {
+                case '&&':
+                    return evaluate(ast.left, context) && evaluate(ast.right, context);
+                case '||':
+                    return evaluate(ast.left, context) || evaluate(ast.right, context);
             }
         }
         throw new Error();
@@ -59,7 +78,6 @@ export var Handlers = {
             if (t.isNumericLiteral(ast.property) || t.isStringLiteral(ast.property)) {
                 return obj[ast.property.value];
             }
-            return evaluate(ast.property, context);
         }
         throw new Error();
     },
@@ -90,8 +108,6 @@ export var Handlers = {
     ArrayExpression: function (ast, context) {
         if (t.isArrayExpression(ast)) {
             return ast.elements.map(function (elem) {
-                if (!elem)
-                    throw new Error();
                 return evaluate(elem, context);
             });
         }
