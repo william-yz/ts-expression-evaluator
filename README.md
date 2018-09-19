@@ -53,6 +53,48 @@ registerFunction('IF', (condition, ifTrue, ifFalse) => {
 evaluate('IF(name === 'FED', 'It\'s FED.', 'It\'s not FED.')') // It's FED.
 
 ```
+## Details
+### Unary Operators
+
+| Operation | Symbol |
+|-----------|:------:|
+| Negate    |    !   |
+
+### Binary Operators
+
+| Operation        |      Symbol      |
+|------------------|:----------------:|
+| Add, Concat      |         +        |
+| Subtract         |         -        |
+| Multiply         |         *        |
+| Divide           |         /        |
+
+### Logical Operators
+
+| Operation        |      Symbol      |
+|------------------|:----------------:|
+| Logical AND      |        &&        |
+| Logical OR       |   &#124;&#124;   |
+
+### Comparisons
+
+| Comparison                 | Symbol |
+|----------------------------|:------:|
+| Equal                      |   ==   |
+| Not equal                  |   !=   |
+| Greater than               |    >   |
+| Greater than or equal      |   >=   |
+| Less than                  |    <   |
+| Less than or equal         |   <=   |
+
+### Native Types
+
+| Type     |            Examples            |
+|----------|:------------------------------:|
+| Booleans |         `true`, `false`        |
+| Strings  | "Hello \"user\"", 'Hey there!' |
+| Numerics |      6, -7.2, 5, -3.14159      |
+| Arrays   |       ['hello', 'world!']      |
 
 ## API
 ### `evaluate(exp: string, context: object): any`
