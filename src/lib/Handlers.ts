@@ -1,4 +1,4 @@
-import * as t from './t';
+import * as t from '@babel/types';
 import { evaluate } from './Evaluator';
 import { getFunction } from './functions';
 
