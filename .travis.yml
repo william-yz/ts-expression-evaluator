@@ -1,4 +1,11 @@
 language: node_js
 node_js:
-  - '8'
-script: "npm install && npm run ci"
+- '8'
+script: npm install && npm run ci
+deploy:
+  provider: npm
+  email: 545792860@qq.com
+  on:
+    tags: true
+  api_key:
+    secure: pIFVnryi1kbkuMFGM5gfPSEIEhc48kPXXLaBLRw3OlW8udHHUkzK4tRU2YZoLoMJrKmiGXGYQ1XwYykoV2SHougufwYK+abTAqYV2AKHLG+8e1e7ISG4VguF/J9V8SX0iXdygBnTV9ZQZjntGOGm4N0hh4SA81w5dMuPT+GfAQf/SewRm8nw+XO9QY4xlEE1BiqB8vSYS54JVXlkCncR6Yk7lKZJYoekOviOBB0ASH3rvK+A5xbZCWw6AADQ/uDNiDJZarqH1iGGeg/8WeK9ke/98aa7OqxSYp9m2hpGePdHO6ejJs5ZBnohscvnfMGb9lJznPJ3w7yW0wyU+numUq9hZEWPPnD5POFT/rY2x8RamzYTfUHxl69s9COvw4k525kuYvBfq5eXMpeX/Nm0mlh/crRoWJMuBJ3ussnaYgXP2ntzg+xupdeWploF2X5Qel37plN2JEfIv947ppZsE6NO+546OgDY68w+6+jywXUhVbf3CvQSjM1HrydUtYy2wCm1z3s+s8zO49FZZ54BTxa8AePEJwt3GHLTW5cymxzQjc0Jd7ljH3EXaDmiDuSj6bGjstiucEHUtdgnPmMJiDblqV1p+5iPHabfDvPk/SryE95kD4rwJRVY8BCuDPIvFOxEnipbnkFMqsOYuz0fEYVNIaza/56Ga1xMTYK/ZB0=
