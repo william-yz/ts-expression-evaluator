@@ -3,7 +3,7 @@ import { evaluate } from './Evaluator';
 import { getFunction } from './functions';
 
 export type HandlerTypes = 'BinaryExpression' | 'NumericLiteral' | 'StringLiteral' | 'BooleanLiteral' | 'ArrayExpression' |
-  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression' | 'LogicalExpression' | 'UnaryExpression';
+  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression' | 'LogicalExpression' | 'UnaryExpression' | 'ThisExpression';
 
 export type Context = {
   [key: string]: any;
@@ -103,9 +103,20 @@ export const Handlers: Handlers = {
       if (t.isNumericLiteral(ast.property) || t.isStringLiteral(ast.property)) {
         return obj[ast.property.value];
       }
+      if ((t.isBinaryExpression(ast.property) || t.isLogicalExpression(ast.property)) && typeof obj.filter === 'function') {
+        return obj.filter((item: {}) => evaluate(ast.property, { context, __scope: item }));
+      }
     }
     throw new Error();
   },
+
+  ThisExpression(ast: t.Expression, context: Context) {
+    if (t.isThisExpression(ast)) {
+      return context.__scope;
+    }
+    throw new Error();
+  },
+
   NumericLiteral(ast: t.Expression) {
     if (t.isNumericLiteral(ast)) {
       return ast.value;

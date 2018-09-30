@@ -36,4 +36,7 @@ export const isLogicalExpression = (ast: t.Expression): ast is t.LogicalExpressi
 export const isUnaryExpression = (ast: t.Expression): ast is t.UnaryExpression => {
   return ast.type === 'UnaryExpression'
 }
+export const isThisExpression = (ast: t.Expression): ast is t.ThisExpression => {
+  return ast.type === 'ThisExpression'
+}
 export type Expression = t.Expression;

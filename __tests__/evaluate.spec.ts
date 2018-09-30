@@ -97,6 +97,13 @@ describe('evaluate expression', () => {
 
   it('!', () => {
     expect(evaluate('!b', context)).toBeTruthy();
-  })
+  });
 
+  it('arrOfObject[this.name === "name1"]', () => {
+    expect(evaluate('arrOfObject[this.name === "name1"]', context)).toEqual([{ name: 'name1' }]);
+  });
+
+  it('arrOfObject[this.name === "name2" && this.arr[0] === "a"][0].name', () => {
+    expect(evaluate('arrOfObject[this.name === "name2" && this.arr[0] === "a"][0].name', context)).toEqual('name2');
+  });
 });
