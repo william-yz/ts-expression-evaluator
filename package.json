@@ -67,7 +67,7 @@
     "prettier": "^1.13.4",
     "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
-    "ts-jest": "^23.1.4",
+    "ts-jest": "^23.10.2",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-immutable": "^4.5.4",
@@ -86,19 +86,17 @@
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
-    "transform": {
-      "^.+\\.ts?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts$",
+    "preset": "ts-jest",
     "moduleFileExtensions": [
       "ts",
       "js",
       "json"
-    ]
-  },
-  "globals": {
-    "ts-jest": {
-      "tsConfigFile": "tsconfig.test.json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json",
+        "diagnostics": false
+      }
     }
   }
 }
