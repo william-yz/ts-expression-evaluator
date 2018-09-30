@@ -52,6 +52,8 @@ registerFunction('IF', (condition, ifTrue, ifFalse) => {
 
 evaluate('IF(name === 'FED', 'It\'s FED.', 'It\'s not FED.')') // It's FED.
 
+// array filter
+evaluate('staffs[this.id === 1]', context) // [{id: 1, name: 'Tina'}]
 ```
 ## Details
 ### Unary Operators
