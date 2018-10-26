@@ -1,4 +1,5 @@
 import evaluate, { registerFunction } from '../src';
+import { parseExpression, parse } from '@babel/parser';
 
 const context = {
   str: 'string',
@@ -13,9 +14,11 @@ const context = {
     a: 1,
     b: {
       c: 'c'
-    }
+    },
+    c: 'ccc'
   },
-  b: false
+  b: false,
+  a: 'a'
 }
 describe('evaluate expression', () => {
   it('1 + 2 - 3 * 4 / 5', () => {
@@ -96,6 +99,7 @@ describe('evaluate expression', () => {
   });
 
   it('!', () => {
+
     expect(evaluate('!b', context)).toBeTruthy();
   });
 
@@ -106,4 +110,8 @@ describe('evaluate expression', () => {
   it('arrOfObject[this.name === "name2" && this.arr[0] === "a"][0].name', () => {
     expect(evaluate('arrOfObject[this.name === "name2" && this.arr[0] === "a"][0].name', context)).toEqual('name2');
   });
+
+  it('obj[obj.b.c]', () => {
+    expect(evaluate('obj[obj.b.c]', context)).toEqual('ccc');
+  })
 });

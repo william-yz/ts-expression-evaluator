@@ -100,6 +100,9 @@ export const Handlers: Handlers = {
       if (t.isIdentifier(ast.property)) {
         return evaluate(ast.property, obj);
       }
+      if (t.isMemberExpression(ast.property)) {
+        return obj[evaluate(ast.property, context)]
+      }
       if (t.isNumericLiteral(ast.property) || t.isStringLiteral(ast.property)) {
         return obj[ast.property.value];
       }

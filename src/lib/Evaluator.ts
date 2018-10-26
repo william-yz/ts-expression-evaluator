@@ -4,7 +4,7 @@ import { Handlers, HandlerTypes } from './Handlers';
 
 export const evaluate = (code: string | t.Expression, context: {}) => {
   if (typeof code === 'string') {
-    const ast = parseExpression(code) as t.Expression;
+    const ast = parseExpression(code, { tokens: true }) as t.Expression;
     return Handlers[ast.type as HandlerTypes](ast, context);
   } else {
     return Handlers[code.type as HandlerTypes](code, context);
