@@ -43,9 +43,12 @@ export const Handlers: Handlers = {
         case '<=':
           return evaluate(ast.left, context) <= evaluate(ast.right, context);
         case 'in': {
-          const container = evaluate(ast.right, context);
-          if (!container) return false;
-          return evaluate(ast.left, context) in container;
+          const right = evaluate(ast.right, context);
+          if (!right) return false;
+          if (typeof right === 'object' && right instanceof Array) {
+            return right.indexOf(evaluate(ast.left, context)) !== -1;
+          }
+          return false;
         }
       }
     }

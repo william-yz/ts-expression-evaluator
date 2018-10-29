@@ -125,5 +125,6 @@ describe('evaluate expression', () => {
     expect(evaluate('1 in arr', context)).toBeTruthy();
     expect(evaluate('6 in arr', context)).toBeFalsy();
     expect(evaluate('6 in undefined', context)).toBeFalsy();
+    expect(evaluate('\'a\' in \'aaa\'', context)).toBeFalsy();
   })
 });
