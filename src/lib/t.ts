@@ -39,4 +39,8 @@ export const isUnaryExpression = (ast: t.Expression): ast is t.UnaryExpression =
 export const isThisExpression = (ast: t.Expression): ast is t.ThisExpression => {
   return ast.type === 'ThisExpression'
 }
+
+export const isConditionalExpression = (ast: t.Expression): ast is t.ConditionalExpression => {
+  return ast.type === 'ConditionalExpression';
+}
 export type Expression = t.Expression;

@@ -3,7 +3,7 @@ import { evaluate } from './Evaluator';
 import { getFunction } from './functions';
 
 export type HandlerTypes = 'BinaryExpression' | 'NumericLiteral' | 'StringLiteral' | 'BooleanLiteral' | 'ArrayExpression' |
-  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression' | 'LogicalExpression' | 'UnaryExpression' | 'ThisExpression';
+  'NullLiteral' | 'Identifier' | 'CallExpression' | 'MemberExpression' | 'LogicalExpression' | 'UnaryExpression' | 'ThisExpression' | 'ConditionalExpression';
 
 export type Context = {
   [key: string]: any;
@@ -47,6 +47,12 @@ export const Handlers: Handlers = {
     throw new Error();
   },
 
+  ConditionalExpression(ast: t.Expression, context: Context) {
+    if (t.isConditionalExpression(ast)) {
+      return evaluate(ast.test, context) ? evaluate(ast.consequent, context) : evaluate(ast.alternate, context);
+    }
+    throw new Error();
+  },
   LogicalExpression(ast: t.Expression, context: Context): boolean {
     if (t.isLogicalExpression(ast)) {
       switch (ast.operator) {

@@ -113,5 +113,10 @@ describe('evaluate expression', () => {
 
   it('obj[obj.b.c]', () => {
     expect(evaluate('obj[obj.b.c]', context)).toEqual('ccc');
+  });
+
+  it('str ? obj.a : 123', () => {
+    expect(evaluate('str ? obj.a : 123', context)).toEqual(1);
+    expect(evaluate('!str ? obj.a : 123', context)).toEqual(123);
   })
 });
