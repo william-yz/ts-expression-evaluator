@@ -1,5 +1,6 @@
 import evaluate, { registerFunction } from '../src';
 import { parseExpression, parse } from '@babel/parser';
+import { objectExpression } from '@babel/types';
 
 const context = {
   str: 'string',
@@ -115,8 +116,14 @@ describe('evaluate expression', () => {
     expect(evaluate('obj[obj.b.c]', context)).toEqual('ccc');
   });
 
-  it('str ? obj.a : 123', () => {
+  it('?  : ', () => {
     expect(evaluate('str ? obj.a : 123', context)).toEqual(1);
     expect(evaluate('!str ? obj.a : 123', context)).toEqual(123);
+  });
+
+  it('in operator', () => {
+    expect(evaluate('1 in arr', context)).toBeTruthy();
+    expect(evaluate('6 in arr', context)).toBeFalsy();
+    expect(evaluate('6 in undefined', context)).toBeFalsy();
   })
 });

@@ -42,6 +42,11 @@ export const Handlers: Handlers = {
           return evaluate(ast.left, context) < evaluate(ast.right, context);
         case '<=':
           return evaluate(ast.left, context) <= evaluate(ast.right, context);
+        case 'in': {
+          const container = evaluate(ast.right, context);
+          if (!container) return false;
+          return evaluate(ast.left, context) in container;
+        }
       }
     }
     throw new Error();
