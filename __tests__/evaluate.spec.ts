@@ -44,6 +44,7 @@ describe('evaluate expression', () => {
   it('== & !=', () => {
     expect(evaluate('1 == 1')).toEqual(true);
     expect(evaluate('2 == 1')).toEqual(false);
+    expect(evaluate('1 != -1')).toEqual(true);
     expect(evaluate('1 == "1"')).toEqual(true);
     expect(evaluate('1 != 1')).toEqual(false);
     expect(evaluate('2 != 1')).toEqual(true);

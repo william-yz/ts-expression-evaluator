@@ -73,11 +73,13 @@ export const Handlers: Handlers = {
     throw new Error();
   },
 
-  UnaryExpression(ast: t.Expression, context: Context): boolean {
+  UnaryExpression(ast: t.Expression, context: Context): boolean | number {
     if (t.isUnaryExpression(ast)) {
       switch (ast.operator) {
         case '!':
           return !evaluate(ast.argument, context);
+        case '-':
+          return - evaluate(ast.argument, context);
       }
     }
     throw new Error();
