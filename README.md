@@ -1,7 +1,7 @@
 # ts-expression-evaluator
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+![Node.js CI](https://github.com/william-yz/ts-expression-evaluator/workflows/Node.js%20CI/badge.svg?branch=github-ci)
 [![Coverage Status][cov-image]][cov-status]
 
 [npm-image]: https://img.shields.io/npm/v/ts-expression-evaluator.svg?style=flat-square
