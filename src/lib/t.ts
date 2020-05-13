@@ -43,4 +43,8 @@ export const isThisExpression = (ast: t.Expression): ast is t.ThisExpression => 
 export const isConditionalExpression = (ast: t.Expression): ast is t.ConditionalExpression => {
   return ast.type === 'ConditionalExpression';
 }
+
+export const isV8IntrinsicIdentifier = (node: t.Expression | t.V8IntrinsicIdentifier): node is t.V8IntrinsicIdentifier => {
+  return node.type === 'V8IntrinsicIdentifier';
+}
 export type Expression = t.Expression;

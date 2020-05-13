@@ -98,7 +98,7 @@ export const Handlers: Handlers = {
   },
   CallExpression(ast: t.Expression, context: Context) {
     if (t.isCallExpression(ast)) {
-      if (t.isIdentifier(ast.callee)) {
+      if (!t.isV8IntrinsicIdentifier(ast.callee) && t.isIdentifier(ast.callee)) {
         const func = getFunction(ast.callee.name);
         const args: t.Expression[] = ast.arguments.map(arg => {
           return evaluate(arg as t.Expression, context);
