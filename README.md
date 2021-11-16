@@ -70,7 +70,7 @@ evaluate('staffs[this.id === 1]', context) // [{id: 1, name: 'Tina'}]
 | Subtract         |         -        |
 | Multiply         |         *        |
 | Divide           |         /        |
-| Module           |         %         |
+| Modulus          |         %         |
 
 ### Logical Operators
 
