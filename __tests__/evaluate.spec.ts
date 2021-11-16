@@ -1,6 +1,4 @@
 import evaluate, { registerFunction } from '../src';
-import { parseExpression, parse } from '@babel/parser';
-import { objectExpression } from '@babel/types';
 
 const context = {
   str: 'string',
@@ -25,6 +23,11 @@ describe('evaluate expression', () => {
   it('1 + 2 - 3 * 4 / 5', () => {
     expect(evaluate('1 + 2 - 3 * 4 / 5')).toBe(1 + 2 - 3 * 4 / 5);
   });
+
+  it('3 % 2', () => {
+    expect(evaluate('3 % 2')).toBe(1);
+  });
+
 
   it('str', () => {
     expect(evaluate('str', context)).toEqual('string');
