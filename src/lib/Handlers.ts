@@ -26,6 +26,8 @@ export const Handlers: Handlers = {
           return evaluate(ast.left, context) * evaluate(ast.right, context);
         case '/':
           return evaluate(ast.left, context) / evaluate(ast.right, context);
+        case '%':
+          return evaluate(ast.left, context) % evaluate(ast.right, context);
         case '===':
           return evaluate(ast.left, context) === evaluate(ast.right, context);
         case '==':
